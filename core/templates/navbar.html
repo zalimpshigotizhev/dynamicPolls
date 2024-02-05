@@ -1,0 +1,23 @@
+{% load static %}
+<div class="row">
+  <div class="col-3">
+    <a href="{% url 'polls:index' %}"><img src="{% static 'img/interactive_polls.png' %}" class="rounded custom-width-img" alt="..."></a>
+  </div>
+  <div class="col mt-3">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'polls:index' %}">Главная</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">{{ nav }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled"></a>
+      </li>
+    </ul>
+
+  </div>
+</div>

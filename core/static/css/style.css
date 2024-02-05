@@ -1,0 +1,14 @@
+.custom-width-img {
+    width: 100%; /* Задаем изначальную ширину, например, на всю ширину родительского контейнера */
+}
+
+/* Медиа-запрос для устройств с шириной экрана больше 992px (lg) */
+@media (min-width: 992px) {
+    .custom-width-img {
+        width: 150px; /* Задаем ширину для устройств больше 992px */
+    }
+}
+
+.custom-color-back{
+    background-color: #bdffc4!important;
+}

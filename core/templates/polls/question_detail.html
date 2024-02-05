@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block 'content' %}
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+        </div>  
+        <div class="col-md-6 px-2">
+            <h5 class="display-6">{{ quest.question_text }} </h5>
+            <form action="{% url 'polls:vote' poll_id question_id %}" method="post">
+                {% csrf_token %}
+                {% for choice in choices %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="vote" id="flexRadioDefault{{ choice.id }}" value="{{ choice.id }}" required>
+                    <label class="form-check-label" for="flexRadioDefault{{ choice.id }}">
+                        {{ choice.choice_text }}
+                    </label>
+                  </div>
+                {% endfor %}
+                <button type="button" class="btn btn-primary mt-4">Назад</button>
+                <button type="submit" class="btn btn-success mt-4 ms-3">Отправить</button>    
+            </form>
+
+        </div>
+        <div class="col col-lg-2">
+        </div>
+    </div>
+
+
+{% endblock 'content' %}

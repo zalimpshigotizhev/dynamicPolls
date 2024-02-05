@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block 'content' %}
+<div class="container text-center m-1 p-3">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-4 m-5">Пройденные вопросы</h1>
+    </div>
+      <div class="col text-start mt-4">
+        <p>Опрос - <samp>{{ poll.name }}</samp></p>
+        <p><samp>Людей прошло этот опрос - {{ count_passes }}</samp></p>
+      </div>
+  </div>
+</div>
+
+{% for quest in questions %}
+<div class="container text-center m-1 p-3 border-top">
+    <div class="row">
+      <div class="col">
+        <h5 class="display-6 m-3">{{ quest.question_text }}</h5>
+        <div class="container m-3">
+          <div class="row">
+            <div class="col">
+              <figcaption class="figure-caption ">На этот вопрос ответили<br>{{ quest.respondents_count }} раз</figcaption>
+            </div>
+            <div class="col">
+              <figcaption class="figure-caption ">Доля ответивших на кол-ство <br>всех участников<br>{{ quest.percentage }}%</figcaption>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col ">
+        <div class="">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col" class="col-6">Варианты</th>
+                      <th scope="col" class="col-3">Голосов</th>
+                      <th scope="col" class="col-3">Процентное соотношение</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                {% for choice in quest.choices %}
+                    <tr>
+                    <td> {{ choice.choice_text }} </td>
+                    <td> {{ choice.votes }} </td>
+                    <td class="custom-color-back"> {{ choice.percentage }}%</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+
+{% endblock 'content' %}
